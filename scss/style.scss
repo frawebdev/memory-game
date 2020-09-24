@@ -1,0 +1,40 @@
+$card-base-color: #FFEFBD;
+$shadow-color: darken($card-base-color, 30%);
+
+    
+@mixin card {
+    border: 2px solid black;
+    border-radius: 5%;
+    background-image : url('../img/turn_card.png');
+    background-size: cover;
+    background-position: center;
+    background-color: $card-base-color; 
+    &:hover{
+        box-shadow: inset 3px 3px 15px $shadow-color;
+        cursor: pointer;
+    }
+}
+
+.game{
+    margin: 20vh auto;
+    width: 700px;
+    height: 500px;
+    padding: 2px;
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+@for $i from 1 through 8 {
+    .card-#{$i}{
+        @include card;
+        }
+    }
+
+
+.win{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
